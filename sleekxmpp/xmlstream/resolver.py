@@ -53,7 +53,7 @@ def default_resolver():
 
 
 def resolve(host, port=None, service=None, proto='tcp',
-            resolver=None, use_ipv6=False):
+            resolver=None, use_ipv6=True):
     """Peform DNS resolution for a given hostname.
 
     Resolution may perform SRV record lookups if a service and protocol
@@ -111,7 +111,7 @@ def resolve(host, port=None, service=None, proto='tcp',
             # Likewise, If `host` is an IPv6 literal, we can return
             # it immediately.
             if hasattr(socket, 'inet_pton'):
-                ipv6 = socket.inet_pton(socket.AF_INET6, host)
+                ipv6 = socket.inet_pton(socket.AF_INET, host)
                 yield (host, host, port)
         except (socket.error, ValueError):
             pass
