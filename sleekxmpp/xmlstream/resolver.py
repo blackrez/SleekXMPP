@@ -188,7 +188,7 @@ def get_AAAA(host):
         log.debug("Unable to query %s for AAAA records: IPv6 is not supported", host)
         return []
     try:
-        recs = socket.getaddrinfo(host, None, socket.AF_INET6,
+        recs = socket.getaddrinfo(host, None, socket.AF_INET,
                                               socket.SOCK_STREAM)
         return [rec[4][0] for rec in recs]
     except (OSError, socket.gaierror):
