@@ -53,7 +53,7 @@ def default_resolver():
 
 
 def resolve(host, port=None, service=None, proto='tcp',
-            resolver=None, use_ipv6=True):
+            resolver=None, use_ipv6=False):
     """Peform DNS resolution for a given hostname.
 
     Resolution may perform SRV record lookups if a service and protocol
